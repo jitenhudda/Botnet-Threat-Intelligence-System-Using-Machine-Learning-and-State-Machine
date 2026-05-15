@@ -1,126 +1,74 @@
-# 🛡️ Botnet Threat Intelligence System Using Machine Learning and State Machine
+# Botnet Threat Intelligence System Using Machine Learning and State Machine
 
-An AI-powered **Botnet Threat Detection & Intelligence System** that combines **Machine Learning**, **Behavioral State Analysis**, and **Risk Scoring** to detect malicious network activities in real time.
+## Overview
 
-This system analyzes network traffic patterns to identify cyber threats such as:
+The Botnet Threat Intelligence System is a hybrid cybersecurity framework designed to detect and analyze malicious network activities using Machine Learning, Risk Scoring, and State Machine-based behavioral analysis.
 
-* Botnet infections
-* DDoS attacks
-* Command & Control (C2) communication
-* Data exfiltration
-* Suspicious traffic anomalies
+The system classifies network traffic patterns and identifies potential threats such as botnet communication, distributed denial-of-service (DDoS) attacks, command-and-control (C2) activity, and suspicious traffic anomalies.
 
-Built using:
-
-* Python
-* Scikit-learn
-* Pandas
-* Gradio
+This project integrates:
+- Machine Learning Classification
+- Behavioral State Analysis
+- Threat Risk Scoring
+- AI-based Threat Explanation
+- Interactive Web Interface using Gradio
 
 ---
 
-# 🚀 Features
+## Features
 
-✅ Machine Learning based traffic classification
-✅ Hybrid threat detection architecture
-✅ Stateful botnet behavior analysis
-✅ Dynamic risk scoring engine
-✅ AI-generated threat explanations
-✅ Interactive Gradio dashboard
-✅ Real-time network threat analysis
-
----
-
-# 📌 Project Overview
-
-Traditional intrusion detection systems often fail to detect evolving botnet behavior patterns.
-This project introduces a **hybrid cyber threat intelligence framework** that combines:
-
-1. **Machine Learning Classification**
-2. **Risk-Based Analysis**
-3. **Finite State Machine Detection**
-
-The system continuously evaluates traffic behavior and predicts possible botnet activities.
+- Real-time network traffic analysis
+- Machine Learning-based threat classification
+- Risk score generation
+- Stateful botnet behavior detection
+- AI-generated threat explanations
+- Interactive Gradio dashboard
+- Hybrid detection architecture
 
 ---
 
-# 🧠 Detection Architecture
+## System Architecture
 
-## Hybrid Detection System
+The project combines three major detection components:
 
-The framework consists of three major layers:
+### 1. Machine Learning Layer
+A Random Forest classifier is trained on network traffic features to classify malicious and benign traffic patterns.
 
-### 1️⃣ Machine Learning Layer
+### 2. Risk Scoring Engine
+The system calculates a dynamic threat risk score using:
+- Flow duration
+- Packet rate
+- Throughput
+- Forward packet count
 
-A `RandomForestClassifier` is trained on network traffic data to classify malicious and benign behavior.
-
-### 2️⃣ Risk Scoring Engine
-
-Calculates threat severity using:
-
-* Packet rate
-* Flow duration
-* Throughput
-* Packet count
-
-### 3️⃣ State Machine Engine
-
-Tracks behavioral progression of network threats.
+### 3. State Machine Engine
+Behavioral transitions are monitored through predefined states:
 
 ```text
 NORMAL → SUSPICIOUS → INFECTED → C2 → ATTACK
 ```
 
----
-
-# 📂 Dataset Requirements
-
-The CSV dataset must contain the following columns:
-
-| Column Name       | Description                    |
-| ----------------- | ------------------------------ |
-| Flow Duration     | Duration of traffic flow       |
-| Total Fwd Packets | Total forward packets          |
-| Flow Bytes/s      | Bytes transferred per second   |
-| Flow Packets/s    | Packets transferred per second |
-| Label             | Traffic label/category         |
+The state machine improves detection of multi-stage cyber attacks and botnet progression.
 
 ---
 
-# ⚙️ Installation
+## Dataset Requirements
 
-## 1️⃣ Clone Repository
+The dataset must contain the following columns:
 
-```bash
-git clone https://github.com/your-username/botnet-threat-intelligence-system.git
-
-cd botnet-threat-intelligence-system
-```
-
----
-
-## 2️⃣ Install Dependencies
-
-```bash
-pip install gradio pandas scikit-learn numpy
-```
+| Column Name | Description |
+|-------------|-------------|
+| Flow Duration | Duration of network flow |
+| Total Fwd Packets | Total forward packets |
+| Flow Bytes/s | Bytes transferred per second |
+| Flow Packets/s | Packets transferred per second |
+| Label | Traffic classification label |
 
 ---
 
-# ▶️ Run the Project
+## Feature Engineering
 
-```bash
-python app.py
-```
-
-After running the program, Gradio will generate a local URL.
-Open it in your browser to access the dashboard.
-
----
-
-# 📊 Feature Engineering
-
-The system creates additional intelligent security features:
+Additional intelligent features are generated to improve detection performance:
 
 ```python
 Bytes_per_Packet
@@ -130,40 +78,80 @@ PPS_Log
 BPS_Log
 ```
 
-These engineered features improve anomaly detection performance.
+These features help identify abnormal traffic behavior patterns more effectively.
 
 ---
 
-# 🧪 Threat Analysis Logic
+## Technologies Used
 
-## Threat Indicators
-
-| Condition                      | Possible Threat   |
-| ------------------------------ | ----------------- |
-| Very high PPS                  | DDoS attack       |
-| High BPS                       | Data exfiltration |
-| Long duration + low packets    | C2 beaconing      |
-| Large packet volume + low rate | Stealth transfer  |
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Gradio
 
 ---
 
-# 🖥️ User Interface
+## Installation
 
-The Gradio dashboard allows users to:
+### Clone the Repository
 
-* Adjust traffic parameters
-* Analyze traffic instantly
-* View risk scores
-* Monitor ML predictions
-* Read AI-generated threat explanations
+```bash
+git clone https://github.com/your-username/botnet-threat-intelligence-system.git
+
+cd botnet-threat-intelligence-system
+```
+
+### Install Dependencies
+
+```bash
+pip install gradio pandas scikit-learn numpy
+```
 
 ---
 
-# 📸 Sample Output
+## Running the Project
+
+Execute the application using:
+
+```bash
+python app.py
+```
+
+After execution, Gradio will generate a local URL to access the web interface.
+
+---
+
+## Threat Detection Logic
+
+The system identifies suspicious activities using behavioral indicators:
+
+| Condition | Possible Threat |
+|------------|----------------|
+| High packets per second | DDoS activity |
+| High bytes per second | Data exfiltration |
+| Long duration with low packets | Command-and-Control communication |
+| High packet volume with low rate | Stealth transfer activity |
+
+---
+
+## User Interface
+
+The Gradio-based dashboard allows users to:
+- Input network traffic parameters
+- Analyze traffic behavior in real time
+- View machine learning predictions
+- Monitor risk scores
+- Read AI-generated threat explanations
+
+---
+
+## Sample Output
 
 ```text
-🚨 Threat Status: ATTACK
-🔥 Risk Score: 84.7%
+Threat Status: ATTACK
+
+Risk Score: 84.7%
 
 Machine Learning Prediction:
 Botnet Traffic
@@ -172,81 +160,55 @@ Confidence:
 97.3%
 
 AI Threat Analysis:
-• Extremely high packet rate detected
-• Traffic flooding behavior consistent with DDoS attacks
-• Possible command & control communication identified
+- Extremely high packet rate detected
+- Traffic flooding behavior consistent with DDoS attacks
+- Possible command-and-control communication identified
 ```
 
 ---
 
-# 🏗️ Technologies Used
+## Applications
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* Gradio
-
----
-
-# 🔒 Security Applications
-
-This project can be used for:
-
-* Botnet Detection Systems
-* Intrusion Detection Systems (IDS)
-* Cybersecurity Research
-* Threat Intelligence Platforms
-* Academic Projects
-* Network Monitoring Solutions
+This project can be applied in:
+- Intrusion Detection Systems (IDS)
+- Botnet Detection Systems
+- Cyber Threat Intelligence Platforms
+- Academic Research
+- Network Security Monitoring
+- Security Analytics Solutions
 
 ---
 
-# 📈 Future Enhancements
+## Future Enhancements
 
-* Deep Learning Integration
-* Live Packet Sniffing
-* Real-Time Traffic Capture
-* SIEM Integration
-* Cloud Deployment
-* Threat Visualization Dashboard
+Future improvements may include:
+- Deep Learning integration
+- Real-time packet sniffing
+- SIEM integration
+- Cloud deployment
+- Threat visualization dashboards
+- Live network monitoring
 
 ---
 
-# 🤝 Contributing
+## Author
+
+Jiten Hudda
+
+---
+
+## Contribution
 
 Contributions are welcome.
 
-### Steps:
-
 1. Fork the repository
-2. Create a new branch
-3. Commit your changes
+2. Create a feature branch
+3. Commit changes
 4. Push the branch
-5. Open a Pull Request
+5. Open a pull request
 
 ---
 
-# 📜 License
+## Acknowledgment
 
-This project is licensed under the MIT License.
-
----
-
-# 👨‍💻 Author
-
-**Jiten Hudda**
-
-* Cybersecurity Enthusiast
-* Machine Learning Developer
-* Network Security Researcher
-
----
-
-# ⭐ Support
-
-If you found this project useful:
-
-⭐ Star the repository
-🍴 Fork the project
-🛡️ Share with cybersecurity enthusiasts
+This project was developed for educational and research purposes in the field of cybersecurity and machine learning.
